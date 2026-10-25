@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokédex</title>
+    <link rel="stylesheet" href="API.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- HEADER -->
+      <div class="dex-header">
+        <div class="dex-header-top">
+          <div>
+            <div class="dex-label">National Pokédex</div>
+            <h1>Poké<span>Dex</span></h1>
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: flex-end;
+              gap: 10px;
+            "
+          >
+            <button
+              class="toggle-btn"
+              onclick="toggleTheme()"
+              title="Toggle theme"
+            >
+              🌙
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- BODY -->
+      <div class="card-body">
+        <!-- SEARCH -->
+        <div class="search-wrap">
+          <span class="search-icon">⌕</span>
+          <input
+            type="text"
+            id="pokemonName"
+            placeholder="Name or number…"
+            autocomplete="off"
+          />
+        </div>
+        <div class="btn-row">
+          <button class="search-btn primary" onclick="fetchData()">
+            Search
+          </button>
+          <button class="search-btn secondary" onclick="randomPokemon()">
+            🎲 Random
+          </button>
+        </div>
+
+        <!-- LOADER -->
+        <div id="loader"></div>
+
+        <!-- RESULT -->
+        <div id="resultCard">
+          <div class="sprite-zone">
+            <img src="" alt="Pokémon sprite" id="pokemonSprite" />
+          </div>
+          <div id="pokemonInfo"></div>
+        </div>
+
+        <!-- HISTORY -->
+        <div id="history"></div>
+
+        <!-- POPULAR -->
+        <div class="popular-section">
+          <div class="popular-title">Popular</div>
+          <div class="popular-pills" id="popularPills"></div>
+        </div>
+      </div>
+    </div>
+
+    <audio id="cry" hidden></audio>
+    <script defer src="API.js"></script>
+  </body>
+</html>
